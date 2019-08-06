@@ -5,9 +5,9 @@ objs/
 obj/
 bin/
 out/
-Asset/IA Append TDA - 副本
-Asset/IA Append TDA
-Asset/Plugins/RootMotion
+Assets/IA Append TDA - 副本
+Assets/IA Append TDA
+Assets/Plugins/RootMotion
 
 *.apk
 *.app
@@ -15,3 +15,4 @@ Asset/Plugins/RootMotion
 *.iml
 *.apk
 *.meta
+
