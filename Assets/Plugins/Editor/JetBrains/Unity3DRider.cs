@@ -23,6 +23,8 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
+//这个应该是jetbrain调试使用的工具
+
 namespace Plugins.Editor.JetBrains
 {
   public class RiderAssetPostprocessor : AssetPostprocessor

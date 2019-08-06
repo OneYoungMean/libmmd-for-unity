@@ -52,9 +52,7 @@ namespace LibMMD.Model
             /// 骨骼变形
             /// </summary>
             MorphTypeBone = 0x02,
-            /// <summary>
-            /// UV,后面一系列都是UV
-            /// </summary>
+            //OYM：后面一系列都是uv,这里就不重复阐述了
             MorphTypeUv = 0x03,
             MorphTypeExtUv1 = 0x04,
             MorphTypeExtUv2 = 0x05,
@@ -65,7 +63,9 @@ namespace LibMMD.Model
             /// </summary>
             MorphTypeMaterial = 0x08
         }
-
+        /// <summary>
+        /// 所有表情的集合
+        /// </summary>
         public abstract class MorphData 
         {
             //OYM：啊我懂了,原来抽象类是这么用的
@@ -116,8 +116,13 @@ namespace LibMMD.Model
             public Vector4 SubTexture { get; set; }
             public Vector4 ToonTexture { get; set; }
         }
-
+        /// <summary>
+        /// 名字
+        /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// 英文名
+        /// </summary>
         public string NameEn { get; set; }
         public MorphCategory Category { get; set; }
         public MorphType Type { get; set; }
