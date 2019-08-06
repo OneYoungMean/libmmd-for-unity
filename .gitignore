@@ -1,3 +1,4 @@
+.vs
 Library/
 Temp/
 libs/
@@ -8,11 +9,14 @@ out/
 Assets/IA Append TDA - 副本
 Assets/IA Append TDA
 Assets/Plugins/RootMotion
-
+Assets/PMX2FBX
+Assets/vmd
 *.apk
 *.app
 .idea
 *.iml
 *.apk
-*.meta
+
+
+
 

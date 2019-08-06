@@ -313,6 +313,7 @@
      <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-Trans-NoCastShadow.shader" />
      <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialDummy.shader" />
      <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-Trans-CullBack-NoCastShadow.shader" />
+     <None Include="Assets\PMX2FBX\readme.txt" />
      <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterial-CullBack-NoCastShadow.shader" />
      <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-Trans.shader" />
      <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-Trans-CullBack.shader" />
@@ -331,6 +332,7 @@
      <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-CullBack-NoCastShadow.shader" />
      <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterial-Trans-CullBack-NoCastShadow.shader" />
      <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-CullBack.shader" />
+     <None Include="Assets\PMX2FBX\pmx2fbx.xml" />
      <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterial.shader" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Unity项目/libmmd-for-unity/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
