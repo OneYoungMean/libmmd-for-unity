@@ -4,32 +4,71 @@ using UnityEngine;
 
 namespace LibMMD.Model
 {
+    /// <summary>
+    /// 姑且称为表情吧
+    /// </summary>
     public class Morph
     {
+        /// <summary>
+        /// 种类
+        /// </summary>
         public enum MorphCategory : byte
         {
+            /// <summary>
+            /// 全身
+            /// </summary>
             MorphCatSystem = 0x00,
+            /// <summary>
+            /// 眉毛
+            /// </summary>
             MorphCatEyebrow = 0x01,
+            /// <summary>
+            /// 眼
+            /// </summary>
             MorphCatEye = 0x02,
+            /// <summary>
+            /// 嘴
+            /// </summary>
             MorphCatMouth = 0x03,
+            /// <summary>
+            /// 其他
+            /// </summary>
             MorphCatOther = 0x04
         }
-
+        /// <summary>
+        /// 变形方式
+        /// </summary>
         public enum MorphType : byte
         {
+            /// <summary>
+            /// 不知道
+            /// </summary>
             MorphTypeGroup = 0x00,
+            /// <summary>
+            /// 顶点变形
+            /// </summary>
             MorphTypeVertex = 0x01,
+            /// <summary>
+            /// 骨骼变形
+            /// </summary>
             MorphTypeBone = 0x02,
+            /// <summary>
+            /// UV,后面一系列都是UV
+            /// </summary>
             MorphTypeUv = 0x03,
             MorphTypeExtUv1 = 0x04,
             MorphTypeExtUv2 = 0x05,
             MorphTypeExtUv3 = 0x06,
             MorphTypeExtUv4 = 0x07,
+            /// <summary>
+            /// 材料变形(罕见)
+            /// </summary>
             MorphTypeMaterial = 0x08
         }
 
-        public abstract class MorphData
+        public abstract class MorphData 
         {
+            //OYM：啊我懂了,原来抽象类是这么用的
         }
 
         public class GroupMorph : MorphData

@@ -32,7 +32,7 @@ namespace LibMMD.Reader
                 throw new MmdFileParseException("File is not a VMD file.");
             }
             motion.Name = MmdReaderUtil.ReadStringFixedLength(reader, 20, Tools.JapaneseEncoding);
-
+            //OYM：我觉得这里可以打个断点看看他是怎么映射到骨骼的
             var boneMotionNum = reader.ReadInt32();
             for (var i = 0; i < boneMotionNum; ++i)
             {
@@ -82,7 +82,7 @@ namespace LibMMD.Reader
             }
 
             //忽略后面的相机数据
-
+            //OYM：看来它这里大修过啊
             return motion.BuildMmdMotion();
         }
         

@@ -69,14 +69,14 @@ namespace LibMMD.Unity3D
         private MmdUnityConfig _config = new MmdUnityConfig();
         private GameObject _boneRootGameObject;
 
-        public static GameObject CreateGameObject(string name = "MMDGameObject")
+        public static GameObject CreateGameObject(string name = "MMDGameObject")//OYM：很巧妙的构造方法
         {
-            var obj = new GameObject(name);
-            obj.AddComponent<MeshFilter>();
-            obj.AddComponent<MmdGameObject>();
-            var skinnedMeshRenderer = obj.AddComponent<SkinnedMeshRenderer>();
-            skinnedMeshRenderer.quality = SkinQuality.Bone4;
-            return obj;
+            var obj = new GameObject(name);//OYM：添加名字
+            obj.AddComponent<MeshFilter>();//OYM：添加一个蒙皮
+            obj.AddComponent<MmdGameObject>();//OYM：添加一个项目
+            var skinnedMeshRenderer = obj.AddComponent<SkinnedMeshRenderer>();//OYM：添加一个着色器
+            skinnedMeshRenderer.quality = SkinQuality.Bone4;//OYM：设置着色器质量
+            return obj;//OYM：返回
         }
 
         public enum PhysicsModeEnum
@@ -102,12 +102,12 @@ namespace LibMMD.Unity3D
             UpdateMaterialsConfig(_materials, _config);
         }
 
-        public bool LoadModel(string path)
+        public bool LoadModel(string path)//OYM：根据路径加载模型
         {
             ModelPath = path;
             try
             {
-                DoLoadModel(path);
+                DoLoadModel(path);//OYM：加载模型
             }
             catch (Exception e)
             {
@@ -354,7 +354,7 @@ namespace LibMMD.Unity3D
         private void DoLoadModel(string filePath)
         {
             Debug.LogFormat("start load model {0}", filePath);
-            _model = ModelReader.LoadMmdModel(filePath, _modelReadConfig);
+            _model = ModelReader.LoadMmdModel(filePath, _modelReadConfig);//OYM：先去看看这个类吧
             Release();
             var directoryInfo = new FileInfo(filePath).Directory;
             if (directoryInfo == null)

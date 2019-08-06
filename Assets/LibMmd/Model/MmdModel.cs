@@ -4,18 +4,18 @@ namespace LibMMD.Model
 {
     public class MmdModel
     {
-        public string Name { get; set; }
-        public string NameEn { get; set; }
-        public string Description { get; set; }
-        public string DescriptionEn { get; set; }
-        public Vertex[] Vertices { get; set; }
-        public int ExtraUvNumber { get; set; }
-        public int[] TriangleIndexes { get; set; }
-        public Part[] Parts { get; set; }
-        public Bone[] Bones { get; set; }
-        public Morph[] Morphs { get; set; }
-        public MmdRigidBody[] Rigidbodies { get; set; }
-        public Constraint[] Constraints { get; set; }
+        public string Name { get; set; }//OYM：姓名
+        public string NameEn { get; set; }//OYM：英文名
+        public string Description { get; set; }//OYM：定义
+        public string DescriptionEn { get; set; }//OYM：定义英文
+        public Vertex[] Vertices { get; set; }//OYM：顶点
+        public int ExtraUvNumber { get; set; }//OYM：额外UV
+        public int[] TriangleIndexes { get; set; }//OYM：三角形?
+        public Part[] Parts { get; set; }//OYM：暂时不知道
+        public Bone[] Bones { get; set; }//OYM：骨骼
+        public Morph[] Morphs { get; set; }//OYM：顶点变形
+        public MmdRigidBody[] Rigidbodies { get; set; }//OYM：刚体
+        public Constraint[] Constraints { get; set; }//OYM：这个我忘了
 
         public void Normalize()
         {
