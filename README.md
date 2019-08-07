@@ -44,3 +44,6 @@ Libmmd-for-Unity makes use of the following 3rd party software:
 
   https://github.com/lzh1590/MMDCameraPath
 
+
+## 一些其他的话
+总之先把注释写好,把这个脚本肝通吧
