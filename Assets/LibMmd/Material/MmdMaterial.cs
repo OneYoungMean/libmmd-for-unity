@@ -2,6 +2,9 @@
 
 namespace LibMMD.Material
 {
+    /// <summary>
+    /// 材料种类的类
+    /// </summary>
     public class MmdMaterial
     {
         public enum SubTextureTypeEnum : byte
@@ -35,7 +38,9 @@ namespace LibMMD.Material
         public MmdTexture SubTexture { get; set; }
         public SubTextureTypeEnum SubTextureType { get; set; }
 
-
+        /// <summary>
+        /// 就一个string
+        /// </summary>
         public string MetaInfo { get; set; }
     }
 }

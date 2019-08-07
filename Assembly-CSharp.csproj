@@ -2,18 +2,15 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>4</LangVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{2A964437-E39E-3FBF-A8D2-63ECC0165CD4}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
@@ -47,9 +44,6 @@
     <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2018.2.21f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -59,543 +53,540 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\LibMmd\Material\MmdMaterial.cs" />
-    <Compile Include="Assets\LibMmd\Material\MmdTexture.cs" />
-    <Compile Include="Assets\LibMmd\Model\Bone.cs" />
-    <Compile Include="Assets\LibMmd\Model\Constraint.cs" />
-    <Compile Include="Assets\LibMmd\Model\MmdModel.cs" />
-    <Compile Include="Assets\LibMmd\Model\MmdRigidBody.cs" />
-    <Compile Include="Assets\LibMmd\Model\Morph.cs" />
-    <Compile Include="Assets\LibMmd\Model\Part.cs" />
-    <Compile Include="Assets\LibMmd\Model\SkinningOperator.cs" />
-    <Compile Include="Assets\LibMmd\Model\Vertex.cs" />
-    <Compile Include="Assets\LibMmd\Motion\BoneImage.cs" />
-    <Compile Include="Assets\LibMmd\Motion\BoneKeyframe.cs" />
-    <Compile Include="Assets\LibMmd\Motion\BonePose.cs" />
-    <Compile Include="Assets\LibMmd\Motion\CameraKeyframe.cs" />
-    <Compile Include="Assets\LibMmd\Motion\CameraMotion.cs" />
-    <Compile Include="Assets\LibMmd\Motion\CameraPose.cs" />
-    <Compile Include="Assets\LibMmd\Motion\Interpolator.cs" />
-    <Compile Include="Assets\LibMmd\Motion\MaterialImage.cs" />
-    <Compile Include="Assets\LibMmd\Motion\MmdMotion.cs" />
-    <Compile Include="Assets\LibMmd\Motion\MmdPose.cs" />
-    <Compile Include="Assets\LibMmd\Motion\MorphKeyframe.cs" />
-    <Compile Include="Assets\LibMmd\Motion\MorphPose.cs" />
-    <Compile Include="Assets\LibMmd\Motion\MotionPlayer.cs" />
-    <Compile Include="Assets\LibMmd\Motion\Poser.cs" />
-    <Compile Include="Assets\LibMmd\Motion\PyhsicsReactor.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\BSExtensionMethods.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ActivatingCollisionAlgorithm.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\AxisSweep3.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\Box2DBox2DCollisionAlgorithm.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\Box2DShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\BoxBoxCollisionAlgorithm.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\BoxBoxDetector.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\BoxShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\BroadphaseInterface.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\BroadphaseProxy.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\BvhTriangleMeshShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CapsuleShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CollisionAlgorithm.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CollisionConfiguration.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CollisionCreateFunc.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CollisionDispatcher.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CollisionObject.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CollisionObjectWrapper.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CollisionShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CollisionWorld.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CompoundCollisionAlgorithm.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CompoundCompoundCollisionAlgorithm.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CompoundShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConcaveShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConeShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ContinuousConvexCollision.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\Convex2DConvex2DAlgorithm.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\Convex2DShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexCast.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexConcaveCollisionAlgorithm.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexConvexAlgorithm.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexHullShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexInternalShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexPenetrationDepthSolver.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexPlaneCollisionAlgorithm.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexPointCloudShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexPolyhedron.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexTriangleMeshShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CylinderShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\Dbvt.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\DbvtBroadphase.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\DefaultCollisionConfiguration.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\DiscreteCollisionDetectorInterface.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\Dispatcher.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\EmptyCollisionAlgorithm.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\EmptyShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GhostObject.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GImpact\BoxCollision.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GImpact\CompoundFromGImpact.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GImpact\GImpactBvh.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GImpact\GImpactCollisionAlgorithm.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GImpact\GImpactQuantizedBvh.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GImpact\GImpactShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GImpact\TriangleShapeEx.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GjkConvexCast.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GjkEpaPenetrationDepthSolver.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GjkPairDetector.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\HeightfieldTerrainShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ManifoldPoint.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ManifoldResult.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\MinkowskiPenetrationDepthSolver.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\MinkowskiSumShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\MultimaterialTriangleMeshShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\MultiSphereShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\OptimizedBvh.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\OverlappingPairCache.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\OverlappingPairCallback.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\PersistentManifold.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\PointCollector.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\PolyhedralConvexShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\QuantizedBvh.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\RaycastCallback.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ScaledBvhTriangleMeshShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ShapeHull.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SimpleBroadphase.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SimulationIslandManager.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SoftBodyConcaveCollisionAlgorithm.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SoftRigidCollisionAlgorithm.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SoftSoftCollisionAlgorithm.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SphereBoxCollisionAlgorithm.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SphereShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SphereSphereCollisionAlgorithm.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SphereTriangleCollisionAlgorithm.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SphereTriangleDetector.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\StaticPlaneShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\StridingMeshInterface.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\TetrahedronShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\TriangleBuffer.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\TriangleCallback.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\TriangleIndexVertexArray.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\TriangleIndexVertexMaterialArray.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\TriangleInfoMap.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\TriangleMesh.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\TriangleMeshShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\TriangleShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\UniformScalingShape.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\UnionFind.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\VoronoiSimplexSolver.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\ConeTwistConstraint.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\ConstraintSolver.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\ContactConstraint.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\ContactSolverInfo.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\DantzigSolver.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\DiscreteDynamicsWorld.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\DynamicsWorld.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBody.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBodyConstraint.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBodyConstraintSolver.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBodyDynamicsWorld.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBodyJointLimitConstraint.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBodyJointMotor.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBodyLink.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBodyLinkCollider.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBodyPoint2Point.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBodySolverConstraint.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\FixedConstraint.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\GearConstraint.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Generic6DofConstraint.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Generic6DofSpring2Constraint.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Generic6DofSpringConstraint.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Hinge2Constraint.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\HingeConstraint.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\IAction.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\ICharacterController.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\KinematicCharacterController.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\MlcpSolver.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\MlcpSolverInterface.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\NncgConstraintSolver.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Point2PointConstraint.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\RaycastVehicle.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\RigidBody.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\RigidBodyConstructionInfo.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\SequentialImpulseConstraintSolver.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\SliderConstraint.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\TypedConstraint.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\UniversalConstraint.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\VehicleRaycaster.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\WheelInfo.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\bFile.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\BulletFile.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\BulletReader.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\BulletWorldImporter.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\BulletWriter.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\BulletXmlWorldImporter.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\Chunk.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\Dna.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\Hacd.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\WorldImporter.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\InvalidDataException.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\AlignedBroadphasePairArray.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\AlignedCollisionObjectArray.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\AlignedIndexedMeshArray.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\AlignedManifoldArray.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\AlignedVector3Array.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\Collections.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\CpuFeatureUtility.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\DebugDraw.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\DefaultMotionState.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\GeometryUtil.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\IDebugDraw.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\MotionState.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\PolarDecomposition.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\Serializer.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\TransformUtil.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Math\Matrix.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Math\Quaternion.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Math\Vector3.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Math\Vector4.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\MathUtil.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Native.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\AlignedAnchorArray.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\AlignedClusterArray.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\AlignedFaceArray.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\AlignedJointArray.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\AlignedLinkArray.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\AlignedMaterialArray.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\AlignedNodeArray.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\AlignedSoftBodyArray.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\AlignedTetraArray.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\Collections.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\DefaultSoftBodySolver.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\SoftBody.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\SoftBodyHelpers.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\SoftBodyRigidBodyCollisionConfiguration.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\SoftBodySolver.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\SoftRigidDynamicsWorld.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\SparseSdf.cs" />
-    <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Utilities.cs" />
-    <Compile Include="Assets\LibMmd\Pyhsics\BulletPyhsicsReactor.cs" />
-    <Compile Include="Assets\LibMmd\Pyhsics\PoserMotionState.cs" />
-    <Compile Include="Assets\LibMmd\Reader\MmdFileParseException.cs" />
-    <Compile Include="Assets\LibMmd\Reader\ModelReadConfig.cs" />
-    <Compile Include="Assets\LibMmd\Reader\ModelReader.cs" />
-    <Compile Include="Assets\LibMmd\Reader\PmdReader.cs" />
-    <Compile Include="Assets\LibMmd\Reader\PmxReader.cs" />
-    <Compile Include="Assets\LibMmd\Reader\VmdReader.cs" />
-    <Compile Include="Assets\LibMmd\Reader\VpdReader.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\AudioFrameTimer.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\BonePose\BonePoseCalculatorWorker.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\BonePose\BonePoseFileFormatException.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\BonePose\BonePoseFileGenerator.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\BonePose\BonePoseFileStorage.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\BonePose\BonePoseImage.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\BonePose\BonePoseNotSuitableException.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\BonePose\BonePosePreCalculator.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\ByteArrayReader.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\ImageLoader\BitmapLoader.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\ImageLoader\DDSLoader.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\ImageLoader\TargaImage.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\ImageLoader\TextureImage.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\MaterialLoader.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\MmdCameraObject.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\MmdConfigSwitch.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\MmdGameObject.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\MmdUnityConfig.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\ModelPart.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\TextureLoader.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\TextureScale.cs" />
-    <Compile Include="Assets\LibMmd\Unity3D\Utils.cs" />
-    <Compile Include="Assets\LibMmd\Util\BlockingQueue.cs" />
-    <Compile Include="Assets\LibMmd\Util\LogUtil.cs" />
-    <Compile Include="Assets\LibMmd\Util\MathUtil.cs" />
-    <Compile Include="Assets\LibMmd\Util\MatrixExtensions.cs" />
-    <Compile Include="Assets\LibMmd\Util\MmdReaderUtil.cs" />
-    <Compile Include="Assets\LibMmd\Util\MmdTextureUtil.cs" />
-    <Compile Include="Assets\LibMmd\Util\SynchronizedQueue.cs" />
-    <Compile Include="Assets\LibMmd\Util\Tools.cs" />
-    <Compile Include="Assets\LibMmd\Util\TransformExtensions.cs" />
-    <Compile Include="Assets\LibMmdDemo\BasicDemoController.cs" />
-    <Compile Include="Assets\LibMmdDemo\BonePoseGeneratorDemoController.cs" />
-    <Compile Include="Assets\LibMmdDemo\FpsDisplay.cs" />
-    <None Include="app.config" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-Trans-NoCastShadow.shader" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialDummy.shader" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-Trans-CullBack-NoCastShadow.shader" />
-    <None Include="Assets\PMX2FBX\readme.txt" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterial-CullBack-NoCastShadow.shader" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-Trans.shader" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-Trans-CullBack.shader" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterial-Trans-CullBack.shader" />
-    <None Include="Assets\IA Append TDA - 副本\IA Append TDA.xml" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline.shader" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterial-NoCastShadow.shader" />
-    <None Include="Assets\LibMmd\Plugins\BulletUnity\Native\OSX\libbulletc.bundle\Contents\Resources\CMakeLists.txt" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterial-Trans.shader" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-NoCastShadow.shader" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterial-Trans-NoCastShadow.shader" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialShadowVertFrag.cginc" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterial-CullBack.shader" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialVertFrag.cginc" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialSurface.cginc" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-CullBack-NoCastShadow.shader" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterial-Trans-CullBack-NoCastShadow.shader" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-CullBack.shader" />
-    <None Include="Assets\PMX2FBX\pmx2fbx.xml" />
-    <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterial.shader" />
-    <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Unity项目/libmmd-for-unity/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Unity项目/libmmd-for-unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Unity项目/libmmd-for-unity/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Unity项目/libmmd-for-unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.AIModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ARModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.AccessibilityModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.AccessibilityModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.AnimationModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.AnimationModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.AssetBundleModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.AssetBundleModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.AudioModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.AudioModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.BaselibModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.BaselibModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ClothModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.ClothModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CloudWebServicesModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.CloudWebServicesModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ClusterInputModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ClusterRendererModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CrashReportingModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.CrashReportingModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.DirectorModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.DirectorModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.FacebookModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.FacebookModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.FileSystemHttpModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.FileSystemHttpModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.GameCenterModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.GameCenterModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.GridModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.GridModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.HotReloadModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.HotReloadModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.IMGUIModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ImageConversionModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.ImageConversionModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.InputModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.InputModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.JSONSerializeModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.LocalizationModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.LocalizationModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ParticleSystemModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ParticlesLegacyModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.ParticlesLegacyModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.PerformanceReportingModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.PhysicsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Physics2DModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.Physics2DModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ProfilerModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.ProfilerModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ScreenCaptureModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.SharedInternalsModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.SpriteMaskModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.SpriteShapeModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteShapeModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.StreamingModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.StreamingModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.StyleSheetsModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.StyleSheetsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.SubstanceModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.SubstanceModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TLSModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.TLSModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TerrainModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TerrainPhysicsModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.TextRenderingModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TilemapModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.TilemapModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TimelineModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.TimelineModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UIModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UIModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UIElementsModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UIElementsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UNETModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UNETModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UmbraModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UmbraModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityAnalyticsModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityConnectModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityConnectModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.VRModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.VRModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.VehiclesModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.VehiclesModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.VideoModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.VideoModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.WindModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.XRModule">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Locator">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/Unity.Locator.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.PerformanceTesting">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/UnityExtensions/Unity/PerformanceTesting/UnityEngine.PerformanceTesting.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Timeline">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.GoogleAudioSpatializer">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.HoloLens">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
-    </Reference>
-    <Reference Include="I18N.CJK">
-      <HintPath>C:/Unity项目/libmmd-for-unity/Assets/LibMmd/Plugins/I18N.CJK.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/VNO2/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.StandardEvents">
-      <HintPath>C:/Users/VNO2/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="mscorlib">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
-    </Reference>
-    <Reference Include="System">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/System.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Core">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/System.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.Serialization">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/System.Runtime.Serialization.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/System.Xml.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml.Linq">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/System.Xml.Linq.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityScript">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/UnityScript.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityScript.Lang">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/UnityScript.Lang.dll</HintPath>
-    </Reference>
-    <Reference Include="Boo.Lang">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/Boo.Lang.dll</HintPath>
-    </Reference>
+     <Compile Include="Assets\LibMmd\Material\MmdMaterial.cs" />
+     <Compile Include="Assets\LibMmd\Material\MmdTexture.cs" />
+     <Compile Include="Assets\LibMmd\Model\Bone.cs" />
+     <Compile Include="Assets\LibMmd\Model\Constraint.cs" />
+     <Compile Include="Assets\LibMmd\Model\MmdModel.cs" />
+     <Compile Include="Assets\LibMmd\Model\MmdRigidBody.cs" />
+     <Compile Include="Assets\LibMmd\Model\Morph.cs" />
+     <Compile Include="Assets\LibMmd\Model\Part.cs" />
+     <Compile Include="Assets\LibMmd\Model\SkinningOperator.cs" />
+     <Compile Include="Assets\LibMmd\Model\Vertex.cs" />
+     <Compile Include="Assets\LibMmd\Motion\BoneImage.cs" />
+     <Compile Include="Assets\LibMmd\Motion\BoneKeyframe.cs" />
+     <Compile Include="Assets\LibMmd\Motion\BonePose.cs" />
+     <Compile Include="Assets\LibMmd\Motion\CameraKeyframe.cs" />
+     <Compile Include="Assets\LibMmd\Motion\CameraMotion.cs" />
+     <Compile Include="Assets\LibMmd\Motion\CameraPose.cs" />
+     <Compile Include="Assets\LibMmd\Motion\Interpolator.cs" />
+     <Compile Include="Assets\LibMmd\Motion\MaterialImage.cs" />
+     <Compile Include="Assets\LibMmd\Motion\MmdMotion.cs" />
+     <Compile Include="Assets\LibMmd\Motion\MmdPose.cs" />
+     <Compile Include="Assets\LibMmd\Motion\MorphKeyframe.cs" />
+     <Compile Include="Assets\LibMmd\Motion\MorphPose.cs" />
+     <Compile Include="Assets\LibMmd\Motion\MotionPlayer.cs" />
+     <Compile Include="Assets\LibMmd\Motion\Poser.cs" />
+     <Compile Include="Assets\LibMmd\Motion\PyhsicsReactor.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\BSExtensionMethods.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ActivatingCollisionAlgorithm.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\AxisSweep3.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\Box2DBox2DCollisionAlgorithm.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\Box2DShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\BoxBoxCollisionAlgorithm.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\BoxBoxDetector.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\BoxShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\BroadphaseInterface.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\BroadphaseProxy.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\BvhTriangleMeshShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CapsuleShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CollisionAlgorithm.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CollisionConfiguration.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CollisionCreateFunc.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CollisionDispatcher.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CollisionObject.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CollisionObjectWrapper.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CollisionShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CollisionWorld.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CompoundCollisionAlgorithm.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CompoundCompoundCollisionAlgorithm.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CompoundShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConcaveShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConeShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ContinuousConvexCollision.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\Convex2DConvex2DAlgorithm.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\Convex2DShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexCast.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexConcaveCollisionAlgorithm.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexConvexAlgorithm.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexHullShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexInternalShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexPenetrationDepthSolver.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexPlaneCollisionAlgorithm.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexPointCloudShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexPolyhedron.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ConvexTriangleMeshShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\CylinderShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\Dbvt.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\DbvtBroadphase.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\DefaultCollisionConfiguration.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\DiscreteCollisionDetectorInterface.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\Dispatcher.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\EmptyCollisionAlgorithm.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\EmptyShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GhostObject.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GImpact\BoxCollision.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GImpact\CompoundFromGImpact.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GImpact\GImpactBvh.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GImpact\GImpactCollisionAlgorithm.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GImpact\GImpactQuantizedBvh.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GImpact\GImpactShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GImpact\TriangleShapeEx.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GjkConvexCast.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GjkEpaPenetrationDepthSolver.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\GjkPairDetector.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\HeightfieldTerrainShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ManifoldPoint.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ManifoldResult.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\MinkowskiPenetrationDepthSolver.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\MinkowskiSumShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\MultimaterialTriangleMeshShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\MultiSphereShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\OptimizedBvh.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\OverlappingPairCache.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\OverlappingPairCallback.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\PersistentManifold.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\PointCollector.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\PolyhedralConvexShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\QuantizedBvh.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\RaycastCallback.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ScaledBvhTriangleMeshShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\ShapeHull.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SimpleBroadphase.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SimulationIslandManager.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SoftBodyConcaveCollisionAlgorithm.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SoftRigidCollisionAlgorithm.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SoftSoftCollisionAlgorithm.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SphereBoxCollisionAlgorithm.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SphereShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SphereSphereCollisionAlgorithm.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SphereTriangleCollisionAlgorithm.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\SphereTriangleDetector.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\StaticPlaneShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\StridingMeshInterface.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\TetrahedronShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\TriangleBuffer.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\TriangleCallback.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\TriangleIndexVertexArray.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\TriangleIndexVertexMaterialArray.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\TriangleInfoMap.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\TriangleMesh.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\TriangleMeshShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\TriangleShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\UniformScalingShape.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\UnionFind.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Collision\VoronoiSimplexSolver.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\ConeTwistConstraint.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\ConstraintSolver.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\ContactConstraint.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\ContactSolverInfo.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\DantzigSolver.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\DiscreteDynamicsWorld.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\DynamicsWorld.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBody.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBodyConstraint.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBodyConstraintSolver.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBodyDynamicsWorld.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBodyJointLimitConstraint.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBodyJointMotor.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBodyLink.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBodyLinkCollider.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBodyPoint2Point.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Featherstone\MultiBodySolverConstraint.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\FixedConstraint.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\GearConstraint.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Generic6DofConstraint.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Generic6DofSpring2Constraint.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Generic6DofSpringConstraint.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Hinge2Constraint.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\HingeConstraint.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\IAction.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\ICharacterController.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\KinematicCharacterController.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\MlcpSolver.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\MlcpSolverInterface.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\NncgConstraintSolver.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\Point2PointConstraint.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\RaycastVehicle.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\RigidBody.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\RigidBodyConstructionInfo.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\SequentialImpulseConstraintSolver.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\SliderConstraint.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\TypedConstraint.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\UniversalConstraint.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\VehicleRaycaster.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Dynamics\WheelInfo.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\bFile.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\BulletFile.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\BulletReader.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\BulletWorldImporter.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\BulletWriter.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\BulletXmlWorldImporter.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\Chunk.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\Dna.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\Hacd.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Extras\WorldImporter.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\InvalidDataException.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\AlignedBroadphasePairArray.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\AlignedCollisionObjectArray.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\AlignedIndexedMeshArray.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\AlignedManifoldArray.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\AlignedVector3Array.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\Collections.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\CpuFeatureUtility.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\DebugDraw.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\DefaultMotionState.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\GeometryUtil.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\IDebugDraw.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\MotionState.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\PolarDecomposition.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\Serializer.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\LinearMath\TransformUtil.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Math\Matrix.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Math\Quaternion.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Math\Vector3.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Math\Vector4.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\MathUtil.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Native.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\AlignedAnchorArray.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\AlignedClusterArray.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\AlignedFaceArray.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\AlignedJointArray.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\AlignedLinkArray.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\AlignedMaterialArray.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\AlignedNodeArray.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\AlignedSoftBodyArray.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\AlignedTetraArray.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\Collections.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\DefaultSoftBodySolver.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\SoftBody.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\SoftBodyHelpers.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\SoftBodyRigidBodyCollisionConfiguration.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\SoftBodySolver.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\SoftRigidDynamicsWorld.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\SoftBody\SparseSdf.cs" />
+     <Compile Include="Assets\LibMmd\Plugins\BulletUnity\BulletSharp\Utilities.cs" />
+     <Compile Include="Assets\LibMmd\Pyhsics\BulletPyhsicsReactor.cs" />
+     <Compile Include="Assets\LibMmd\Pyhsics\PoserMotionState.cs" />
+     <Compile Include="Assets\LibMmd\Reader\MmdFileParseException.cs" />
+     <Compile Include="Assets\LibMmd\Reader\ModelReadConfig.cs" />
+     <Compile Include="Assets\LibMmd\Reader\ModelReader.cs" />
+     <Compile Include="Assets\LibMmd\Reader\PmdReader.cs" />
+     <Compile Include="Assets\LibMmd\Reader\PmxReader.cs" />
+     <Compile Include="Assets\LibMmd\Reader\VmdReader.cs" />
+     <Compile Include="Assets\LibMmd\Reader\VpdReader.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\AudioFrameTimer.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\BonePose\BonePoseCalculatorWorker.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\BonePose\BonePoseFileFormatException.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\BonePose\BonePoseFileGenerator.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\BonePose\BonePoseFileStorage.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\BonePose\BonePoseImage.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\BonePose\BonePoseNotSuitableException.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\BonePose\BonePosePreCalculator.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\ByteArrayReader.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\ImageLoader\BitmapLoader.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\ImageLoader\DDSLoader.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\ImageLoader\TargaImage.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\ImageLoader\TextureImage.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\MaterialLoader.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\MmdCameraObject.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\MmdConfigSwitch.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\MmdGameObject.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\MmdUnityConfig.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\ModelPart.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\TextureLoader.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\TextureScale.cs" />
+     <Compile Include="Assets\LibMmd\Unity3D\Utils.cs" />
+     <Compile Include="Assets\LibMmd\Util\BlockingQueue.cs" />
+     <Compile Include="Assets\LibMmd\Util\LogUtil.cs" />
+     <Compile Include="Assets\LibMmd\Util\MathUtil.cs" />
+     <Compile Include="Assets\LibMmd\Util\MatrixExtensions.cs" />
+     <Compile Include="Assets\LibMmd\Util\MmdReaderUtil.cs" />
+     <Compile Include="Assets\LibMmd\Util\MmdTextureUtil.cs" />
+     <Compile Include="Assets\LibMmd\Util\SynchronizedQueue.cs" />
+     <Compile Include="Assets\LibMmd\Util\Tools.cs" />
+     <Compile Include="Assets\LibMmd\Util\TransformExtensions.cs" />
+     <Compile Include="Assets\LibMmdDemo\BasicDemoController.cs" />
+     <Compile Include="Assets\LibMmdDemo\BonePoseGeneratorDemoController.cs" />
+     <Compile Include="Assets\LibMmdDemo\FpsDisplay.cs" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-Trans-NoCastShadow.shader" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialDummy.shader" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-Trans-CullBack-NoCastShadow.shader" />
+     <None Include="Assets\PMX2FBX\readme.txt" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterial-CullBack-NoCastShadow.shader" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-Trans.shader" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-Trans-CullBack.shader" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterial-Trans-CullBack.shader" />
+     <None Include="Assets\IA Append TDA - 副本\IA Append TDA.xml" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline.shader" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterial-NoCastShadow.shader" />
+     <None Include="Assets\LibMmd\Plugins\BulletUnity\Native\OSX\libbulletc.bundle\Contents\Resources\CMakeLists.txt" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterial-Trans.shader" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-NoCastShadow.shader" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterial-Trans-NoCastShadow.shader" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialShadowVertFrag.cginc" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterial-CullBack.shader" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialVertFrag.cginc" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialSurface.cginc" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-CullBack-NoCastShadow.shader" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterial-Trans-CullBack-NoCastShadow.shader" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterialOutline-CullBack.shader" />
+     <None Include="Assets\PMX2FBX\pmx2fbx.xml" />
+     <None Include="Assets\LibMmd\Resources\Shaders\MeshPmdMaterial.shader" />
+ <Reference Include="UnityEditor.StandardEvents">
+ <HintPath>C:/Unity项目/libmmd-for-unity/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro.Editor">
+ <HintPath>C:/Unity项目/libmmd-for-unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.PackageManagerUI.Editor">
+ <HintPath>C:/Unity项目/libmmd-for-unity/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro">
+ <HintPath>C:/Unity项目/libmmd-for-unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.AIModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.ARModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.AccessibilityModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.AccessibilityModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.AnimationModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.AnimationModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.AssetBundleModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.AssetBundleModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.AudioModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.AudioModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.BaselibModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.BaselibModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.ClothModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.ClothModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.CloudWebServicesModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.CloudWebServicesModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.ClusterInputModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.ClusterRendererModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.CoreModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.CrashReportingModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.CrashReportingModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.DirectorModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.DirectorModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.FacebookModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.FacebookModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.FileSystemHttpModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.FileSystemHttpModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.GameCenterModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.GameCenterModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.GridModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.GridModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HotReloadModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.HotReloadModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.IMGUIModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.IMGUIModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.ImageConversionModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.ImageConversionModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.InputModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.InputModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.JSONSerializeModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.LocalizationModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.LocalizationModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.ParticleSystemModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.ParticlesLegacyModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.ParticlesLegacyModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.PerformanceReportingModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.PhysicsModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.PhysicsModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Physics2DModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.Physics2DModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.ProfilerModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.ProfilerModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.ScreenCaptureModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.SharedInternalsModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.SpriteMaskModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.SpriteShapeModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteShapeModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.StreamingModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.StreamingModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.StyleSheetsModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.StyleSheetsModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.SubstanceModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.SubstanceModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TLSModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.TLSModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TerrainModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TerrainPhysicsModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TextRenderingModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.TextRenderingModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TilemapModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.TilemapModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TimelineModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.TimelineModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UIModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UIModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UIElementsModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UIElementsModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UNETModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UNETModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UmbraModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UmbraModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UnityAnalyticsModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UnityConnectModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityConnectModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UnityWebRequestModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VRModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.VRModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VehiclesModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.VehiclesModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VideoModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.VideoModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.WindModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.XRModule">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Locator">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/Managed/Unity.Locator.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.PerformanceTesting">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/UnityExtensions/Unity/PerformanceTesting/UnityEngine.PerformanceTesting.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Timeline">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.GoogleAudioSpatializer">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.SpatialTracking">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="I18N.CJK">
+ <HintPath>C:/Unity项目/libmmd-for-unity/Assets/LibMmd/Plugins/I18N.CJK.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Users/VNO2/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.StandardEvents">
+ <HintPath>C:/Users/VNO2/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+ </Reference>
+ <Reference Include="mscorlib">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
+ </Reference>
+ <Reference Include="System">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/System.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Core">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/System.Core.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Runtime.Serialization">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/System.Runtime.Serialization.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Xml">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/System.Xml.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Xml.Linq">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/System.Xml.Linq.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityScript">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/UnityScript.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityScript.Lang">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/UnityScript.Lang.dll</HintPath>
+ </Reference>
+ <Reference Include="Boo.Lang">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/Boo.Lang.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{AA94BE21-8C8F-FE61-2A80-6139F462B6CD}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
+      <Project>{AA94BE21-8C8F-FE61-2A80-6139F462B6CD}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -605,4 +596,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  
 </Project>

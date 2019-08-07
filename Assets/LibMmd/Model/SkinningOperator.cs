@@ -2,13 +2,31 @@ using UnityEngine;
 
 namespace LibMMD.Model
 {
+    /// <summary>
+    /// 蒙皮的操作,用来控制顶点跟随哪些骨骼移动
+    /// </summary>
     public class SkinningOperator
     {
+        /// <summary>
+        /// 蒙皮种类
+        /// </summary>
         public enum SkinningType : byte
         {
+            /// <summary>
+            /// 单骨骼控制
+            /// </summary>
             SkinningBdef1 = 0,
+            /// <summary>
+            /// 两根骨骼控制
+            /// </summary>
             SkinningBdef2 = 1,
+            /// <summary>
+            /// 四根骨骼控制
+            /// </summary>
             SkinningBdef4 = 2,
+            /// <summary>
+            /// 
+            /// </summary>
             SkinningSdef = 3
         }
 
@@ -50,11 +68,25 @@ namespace LibMMD.Model
             {
                 BoneId = new int[2];
             }
-
+            /// <summary>
+            /// 骨骼ID
+            /// </summary>
             public int[] BoneId { get; set; }
+            /// <summary>
+            /// 骨骼权重
+            /// </summary>
             public float BoneWeight { get; set; }
+            /// <summary>
+            /// 圆心?
+            /// </summary>
             public Vector3 C { get; set; }
+            /// <summary>
+            /// 半径a?
+            /// </summary>
             public Vector3 R0 { get; set; }
+            /// <summary>
+            /// 半径B?
+            /// </summary>
             public Vector3 R1 { get; set; }
         }
 

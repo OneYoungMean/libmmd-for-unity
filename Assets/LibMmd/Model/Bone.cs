@@ -31,7 +31,7 @@ namespace LibMMD.Model
         public class ChildBone
         {
             /// <summary>
-            /// ID
+            /// 这是个bool?
             /// </summary>
             public bool ChildUseId { get; set; }
             /// <summary>

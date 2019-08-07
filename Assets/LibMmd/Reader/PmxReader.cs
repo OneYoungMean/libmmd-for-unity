@@ -10,24 +10,30 @@ namespace LibMMD.Reader
 {
     public class PmxReader : ModelReader
     {
-        
-        public override MmdModel Read(BinaryReader reader, ModelReadConfig config)
+        /// <summary>
+        /// 读取mmd
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="config"></param>
+        /// <returns></returns>
+        public override MmdModel Read(BinaryReader reader,ModelReadConfig config)
         {
-            var pmxHeader = ReadMeta(reader);
-            if (!"PMX ".Equals(pmxHeader.Magic) || Math.Abs(pmxHeader.Version - 2.0f) > 0.0001f || pmxHeader.FileFlagSize !=8)
+            //config虽然现在是空的,但是等下会被赋值,作者只是想顺便传出去一下
+            var pmxHeader = ReadMeta(reader);//OYM：读取
+            if (!"PMX ".Equals(pmxHeader.Magic) || Math.Abs(pmxHeader.Version - 2.0f) > 0.0001f || pmxHeader.FileFlagSize != 8)//OYM：验证文件
             {
                 throw new MmdFileParseException("File is not a PMX 2.0 file");
             }
 
             var model = new MmdModel();
-            var pmxConfig = ReadPmxConfig(reader, model);
-            ReadModelNameAndDescription(reader, model, pmxConfig);
-            ReadVertices(reader, model, pmxConfig);
-            ReadTriangles(reader, model, pmxConfig);
-            var textureList = ReadTextureList(reader, pmxConfig);
-            ReadParts(reader, config, model, pmxConfig, textureList);
-            ReadBones(reader, model, pmxConfig);
-            ReadMorphs(reader, model, pmxConfig);
+            var pmxConfig = ReadPmxConfig(reader, model);//OYM：底层读取,另外config在这里获取
+            ReadModelNameAndDescription(reader, model, pmxConfig);//OYM：读取文件信息
+            ReadVertices(reader, model, pmxConfig);//OYM：读取顶点
+            ReadTriangles(reader, model, pmxConfig);//OYM：读取三角形
+            var textureList = ReadTextureList(reader, pmxConfig);//OYM：获取所有材质的路径的一个类
+            ReadParts(reader, config, model, pmxConfig, textureList);//OYM：获取材质shader的类
+            ReadBones(reader, model, pmxConfig);//OYM：获取骨骼
+            ReadMorphs(reader, model, pmxConfig);//OYM：表情包~
             ReadEntries(reader, pmxConfig);
             ReadRigidBodies(reader, model, pmxConfig);
             ReadConstraints(reader, model, pmxConfig);
@@ -73,12 +79,15 @@ namespace LibMMD.Reader
 
         private static PmxConfig ReadPmxConfig(BinaryReader reader, MmdModel model)
         {
+            //https://www.cnblogs.com/tanding/archive/2012/07/02/2572702.html
+            //OYM：下面一摞方法都是读取一个字节,从0-256到-128-128的方法都有.
+
             var pmxConfig = new PmxConfig();
-            pmxConfig.Utf8Encoding = reader.ReadByte() != 0;
-            pmxConfig.ExtraUvNumber = reader.ReadSByte();
-            pmxConfig.VertexIndexSize = reader.ReadSByte();
-            pmxConfig.TextureIndexSize = reader.ReadSByte();
-            pmxConfig.MaterialIndexSize = reader.ReadSByte();
+            pmxConfig.Utf8Encoding = reader.ReadByte() != 0;//OYM：是否是UTF8
+            pmxConfig.ExtraUvNumber = reader.ReadSByte();//OYM：UV数量
+            pmxConfig.VertexIndexSize = reader.ReadSByte();//OYM：不知道
+            pmxConfig.TextureIndexSize = reader.ReadSByte();//OYM：不知道
+            pmxConfig.MaterialIndexSize = reader.ReadSByte();//OYM：不知道,下面都不知道,懒得写了
             pmxConfig.BoneIndexSize = reader.ReadSByte();
             pmxConfig.MorphIndexSize = reader.ReadSByte();
             pmxConfig.RigidBodyIndexSize = reader.ReadSByte();
@@ -143,7 +152,7 @@ namespace LibMMD.Reader
 
         private static void ReadMorphs(BinaryReader reader, MmdModel model, PmxConfig pmxConfig)
         {
-            var morphNum = reader.ReadInt32();
+            var morphNum = reader.ReadInt32();//OYM：表情包数量
             int? baseMorphIndex = null;
             model.Morphs = new Morph[morphNum];
             for (var i = 0; i < morphNum; ++i)
@@ -257,10 +266,15 @@ namespace LibMMD.Reader
                 model.Morphs[i] = morph;
             }
         }
-
+        /// <summary>
+        /// 读取骨骼数目
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="model"></param>
+        /// <param name="pmxConfig"></param>
         private static void ReadBones(BinaryReader reader, MmdModel model, PmxConfig pmxConfig)
         {
-            var boneNum = reader.ReadInt32();
+            var boneNum = reader.ReadInt32();//OYM：获取骨骼数目
             model.Bones = new Bone[boneNum];
             for (var i = 0; i < boneNum; ++i)
             {
@@ -270,7 +284,7 @@ namespace LibMMD.Reader
                     NameEn = MmdReaderUtil.ReadSizedString(reader, pmxConfig.Encoding),
                     Position = MmdReaderUtil.ReadVector3(reader)
                 };
-                var parentIndex = MmdReaderUtil.ReadIndex(reader, pmxConfig.BoneIndexSize);
+                var parentIndex = MmdReaderUtil.ReadIndex(reader, pmxConfig.BoneIndexSize);//OYM：获取父骨骼的序号
                 if (parentIndex < boneNum && parentIndex >= 0)
                 {
                     bone.ParentIndex = parentIndex;
@@ -279,7 +293,8 @@ namespace LibMMD.Reader
                 {
                     bone.ParentIndex = -1;
                 }
-                bone.TransformLevel = reader.ReadInt32();
+                bone.TransformLevel = reader.ReadInt32();//OYM：不知道
+                //下面一排位运算,跳过
                 var flag = reader.ReadUInt16();
                 bone.ChildBoneVal.ChildUseId = (flag & PmxBoneFlags.PmxBoneChildUseId) != 0;
                 bone.Rotatable = (flag & PmxBoneFlags.PmxBoneRotatable) != 0;
@@ -301,21 +316,21 @@ namespace LibMMD.Reader
                 {
                     bone.ChildBoneVal.Offset = MmdReaderUtil.ReadVector3(reader);
                 }
-                if (bone.RotAxisFixed)
+                if (bone.RotAxisFixed)//OYM：旋转角固定?
                 {
                     bone.RotAxis = MmdReaderUtil.ReadVector3(reader);
                 }
-                if (bone.AppendRotate || bone.AppendTranslate)
+                if (bone.AppendRotate || bone.AppendTranslate)//OYM：看不懂,告辞
                 {
                     bone.AppendBoneVal.Index = MmdReaderUtil.ReadIndex(reader, pmxConfig.BoneIndexSize);
                     bone.AppendBoneVal.Ratio = reader.ReadSingle();
                 }
-                if (bone.UseLocalAxis)
+                if (bone.UseLocalAxis)//OYM：使用本地坐标
                 {
-                    var localX = MmdReaderUtil.ReadVector3(reader);
-                    var localZ = MmdReaderUtil.ReadVector3(reader);
-                    var localY = Vector3.Cross(localX, localZ);
-                    localZ = Vector3.Cross(localX, localY);
+                    Vector3 localX = MmdReaderUtil.ReadVector3(reader);
+                    Vector3 localZ = MmdReaderUtil.ReadVector3(reader);
+                    Vector3 localY = Vector3.Cross(localX, localZ);//OYM：差积出来你也太懒了吧
+                    localZ = Vector3.Cross(localX, localY);//OYM：再差积一次防止坐标轴反了?
                     localX.Normalize();
                     localY.Normalize();
                     localZ.Normalize();
@@ -329,35 +344,47 @@ namespace LibMMD.Reader
                 }
                 if (bone.HasIk)
                 {
-                    ReadBoneIk(reader, bone, pmxConfig.BoneIndexSize);
+                    ReadBoneIk(reader, bone, pmxConfig.BoneIndexSize);//OYM：来看看别人IK怎么描述位置的
                 }
 
                 model.Bones[i] = bone;
             }
         }
-
+        /// <summary>
+        /// 读取模型骨骼的IK
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="bone"></param>
+        /// <param name="boneIndexSize"></param>
         private static void ReadBoneIk(BinaryReader reader, Bone bone, int boneIndexSize)
         {
             bone.IkInfoVal = new Bone.IkInfo();
-            bone.IkInfoVal.IkTargetIndex = MmdReaderUtil.ReadIndex(reader, boneIndexSize);
-            bone.IkInfoVal.CcdIterateLimit = reader.ReadInt32();
-            bone.IkInfoVal.CcdAngleLimit = reader.ReadSingle();
+            bone.IkInfoVal.IkTargetIndex = MmdReaderUtil.ReadIndex(reader, boneIndexSize);//OYM：IK目标
+            bone.IkInfoVal.CcdIterateLimit = reader.ReadInt32();//OYM：我想起来了,这是IK解算的术语
+            bone.IkInfoVal.CcdAngleLimit = reader.ReadSingle();//OYM：同上
             var ikLinkNum = reader.ReadInt32();
             bone.IkInfoVal.IkLinks = new Bone.IkLink[ikLinkNum];
             for (var j = 0; j < ikLinkNum; ++j)
             {
                 var link = new Bone.IkLink();
-                link.LinkIndex = MmdReaderUtil.ReadIndex(reader, boneIndexSize);
-                link.HasLimit = reader.ReadByte() != 0;
+                link.LinkIndex = MmdReaderUtil.ReadIndex(reader, boneIndexSize);//OYM：IK的link?
+                link.HasLimit = reader.ReadByte() != 0;//OYM：有限制
                 if (link.HasLimit)
                 {
                     link.LoLimit = MmdReaderUtil.ReadVector3(reader);
                     link.HiLimit = MmdReaderUtil.ReadVector3(reader);
                 }
-                bone.IkInfoVal.IkLinks[j] = link;
+                bone.IkInfoVal.IkLinks[j] = link;//OYM：反正看不懂,等下找下在哪调用的看看好了
             }
         }
-
+        /// <summary>
+        /// 这个是负责生成mmd的shader的(抽象比喻
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="config"></param>
+        /// <param name="model"></param>
+        /// <param name="pmxConfig"></param>
+        /// <param name="textureList"></param>
         private static void ReadParts(BinaryReader reader, ModelReadConfig config, MmdModel model, PmxConfig pmxConfig, MmdTexture[] textureList)
         {
             var partNum = reader.ReadInt32();
@@ -368,75 +395,101 @@ namespace LibMMD.Reader
                 var part = new Part();
                 var material = ReadMaterial(reader, config, pmxConfig.Encoding, pmxConfig.TextureIndexSize, textureList);
                 part.Material = material;
-                var partTriangleIndexNum = reader.ReadInt32();
+                var partTriangleIndexNum = reader.ReadInt32();//OYM：读出三角形数量,
                 if (partTriangleIndexNum % 3 != 0)
                 {
                     throw new MmdFileParseException("part" + i + " triangle index count " + partTriangleIndexNum +
-                                                    " is not multiple of 3");
+                                                   " is not multiple of 3");
                 }
-                part.BaseShift = partBaseShift;
+                part.BaseShift = partBaseShift;//OYM：这里不一定为零,是一个累加的计算
                 part.TriangleIndexNum = partTriangleIndexNum;
                 partBaseShift += partTriangleIndexNum;
                 model.Parts[i] = part;
             }
         }
-
+        /// <summary>
+        /// 读取材质
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="pmxConfig"></param>
+        /// <returns></returns>
         private static MmdTexture[] ReadTextureList(BinaryReader reader, PmxConfig pmxConfig)
         {
-            var textureNum = reader.ReadInt32();
+            var textureNum = reader.ReadInt32();//OYM：材质数目
             var textureList = new MmdTexture[textureNum];
             for (var i = 0; i < textureNum; ++i)
             {
                 var texturePathEncoding = pmxConfig.Utf8Encoding ? Encoding.UTF8 : Encoding.Unicode;
-                var texturePath = MmdReaderUtil.ReadSizedString(reader, texturePathEncoding);
+                var texturePath = MmdReaderUtil.ReadSizedString(reader, texturePathEncoding);//OYM：获取材质路径
                 textureList[i] = new MmdTexture(texturePath);
             }
             return textureList;
         }
-
+        /// <summary>
+        /// 读取三角形数目
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="model"></param>
+        /// <param name="pmxConfig"></param>
         private static void ReadTriangles(BinaryReader reader, MmdModel model, PmxConfig pmxConfig)
         {
             var triangleIndexCount = reader.ReadInt32();
             model.TriangleIndexes = new int[triangleIndexCount];
-            if (triangleIndexCount % 3 != 0)
+            if (triangleIndexCount % 3 != 0)//OYM：如果不是三的整数倍就报错(这样子就代表肯定有个三角形的数据丢失了)
             {
                 throw new MmdFileParseException("triangle index count " + triangleIndexCount + " is not multiple of 3");
             }
             for (var i = 0; i < triangleIndexCount; ++i)
             {
-                model.TriangleIndexes[i] = MmdReaderUtil.ReadIndex(reader, pmxConfig.VertexIndexSize);
+                model.TriangleIndexes[i] = MmdReaderUtil.ReadIndex(reader, pmxConfig.VertexIndexSize);//OYM：读取三角形
             }
         }
-
+        /// <summary>
+        /// 一个读取顶点数目的方法
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="model"></param>
+        /// <param name="pmxConfig"></param>
         private static void ReadVertices(BinaryReader reader, MmdModel model, PmxConfig pmxConfig)
         {
+            //OYM：不啰嗦了
             var vertexNum = reader.ReadInt32();
             model.Vertices = new Vertex[vertexNum];
             for (uint i = 0; i < vertexNum; ++i)
             {
-                var vertex = ReadVertex(reader, pmxConfig);
-                model.Vertices[i] = vertex;
+                var vertex = ReadVertex(reader, pmxConfig);//OYM：对一个顶点进行数据提取
+                model.Vertices[i] = vertex;//OYM：赋值
             }
         }
 
         private static void ReadModelNameAndDescription(BinaryReader reader, MmdModel model, PmxConfig pmxConfig)
         {
+            //OYM：一堆读取信息,没什么好看的
             model.Name = MmdReaderUtil.ReadSizedString(reader, pmxConfig.Encoding);
             model.NameEn = MmdReaderUtil.ReadSizedString(reader, pmxConfig.Encoding);
             model.Description = MmdReaderUtil.ReadSizedString(reader, pmxConfig.Encoding);
             model.DescriptionEn = MmdReaderUtil.ReadSizedString(reader, pmxConfig.Encoding);
         }
-
+        /// <summary>
+        /// 关键部分
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="pmxConfig"></param>
+        /// <returns></returns>
         private static Vertex ReadVertex(BinaryReader reader, PmxConfig pmxConfig)
         {
+
             var pv = ReadVertexBasic(reader);
+            //new一个顶点,赋值
+
             var vertex = new Vertex
             {
                 Coordinate = pv.Coordinate,
                 Normal = pv.Normal,
                 UvCoordinate = pv.UvCoordinate
             };
-
+            //OYM：如果有额外的uv(在底层设置那里)
+            //OYM：也不知道到底有什么用...
             if (pmxConfig.ExtraUvNumber > 0)
             {
                 var extraUv = new Vector4[pmxConfig.ExtraUvNumber];
@@ -446,15 +499,15 @@ namespace LibMMD.Reader
                 }
                 vertex.ExtraUvCoordinate = extraUv;
             }
-
+            
             var op = new SkinningOperator();
-            var skinningType = (SkinningOperator.SkinningType) reader.ReadByte();
-            op.Type = skinningType;
+            var skinningType = (SkinningOperator.SkinningType)reader.ReadByte();//OYM：蒙皮种类
+            op.Type = skinningType;//OYM：看不懂就完事了
 
-            switch (skinningType)
+            switch (skinningType)//OYM：应该是权重没跑了
             {
                 case SkinningOperator.SkinningType.SkinningBdef1:
-                    var bdef1 = new SkinningOperator.Bdef1();
+                    var bdef1 = new SkinningOperator.Bdef1();//OYM：注意这里用了父类可以为任意形式子类的方法,很模糊但是还是要好好学
                     bdef1.BoneId = MmdReaderUtil.ReadIndex(reader, pmxConfig.BoneIndexSize);
                     op.Param = bdef1;
                     break;
@@ -477,7 +530,7 @@ namespace LibMMD.Reader
                     }
                     op.Param = bdef4;
                     break;
-                case SkinningOperator.SkinningType.SkinningSdef:
+                case SkinningOperator.SkinningType.SkinningSdef://OYM：这个猜不准,到时候再看
                     var sdef = new SkinningOperator.Sdef();
                     sdef.BoneId[0] = MmdReaderUtil.ReadIndex(reader, pmxConfig.BoneIndexSize);
                     sdef.BoneId[1] = MmdReaderUtil.ReadIndex(reader, pmxConfig.BoneIndexSize);
@@ -490,14 +543,23 @@ namespace LibMMD.Reader
                 default:
                     throw new MmdFileParseException("invalid skinning type: " + skinningType);
             }
-            vertex.SkinningOperator = op;
-            vertex.EdgeScale = reader.ReadSingle();
+            vertex.SkinningOperator = op;//OYM：顶点的蒙皮操作
+            vertex.EdgeScale = reader.ReadSingle();//OYM：这个实在猜不准,但是考虑到就一个单精度,猜一个倍率好了
             return vertex;
         }
-
+        /// <summary>
+        /// 获取这个material各种杂七杂八的属性
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="config"></param>
+        /// <param name="encoding"></param>
+        /// <param name="textureIndexSize"></param>
+        /// <param name="textureList"></param>
+        /// <returns></returns>
         private static MmdMaterial ReadMaterial(BinaryReader reader, ModelReadConfig config, Encoding encoding,
             int textureIndexSize, MmdTexture[] textureList)
         {
+            //OYM：别想着优化这一坨代码,人家按顺序来的
             var material = new MmdMaterial();
             material.Name = MmdReaderUtil.ReadSizedString(reader, encoding);
             material.NameEn = MmdReaderUtil.ReadSizedString(reader, encoding);
@@ -506,6 +568,7 @@ namespace LibMMD.Reader
             material.Shiness = reader.ReadSingle();
             material.AmbientColor = MmdReaderUtil.ReadColor(reader, false);
             var drawFlag = reader.ReadByte();
+            //OYM：下面一排位运算,谁有兴趣去看一眼?
             material.DrawDoubleFace = (drawFlag & PmxMaterialDrawFlags.PmxMaterialDrawDoubleFace) != 0;
             material.DrawGroundShadow = (drawFlag & PmxMaterialDrawFlags.PmxMaterialDrawGroundShadow) != 0;
             material.CastSelfShadow = (drawFlag & PmxMaterialDrawFlags.PmxMaterialCastSelfShadow) != 0;
@@ -513,7 +576,7 @@ namespace LibMMD.Reader
             material.DrawEdge = (drawFlag & PmxMaterialDrawFlags.PmxMaterialDrawEdge) != 0;
             material.EdgeColor = MmdReaderUtil.ReadColor(reader, true);
             material.EdgeSize = reader.ReadSingle();
-            var textureIndex = MmdReaderUtil.ReadIndex(reader, textureIndexSize);
+            var textureIndex = MmdReaderUtil.ReadIndex(reader, textureIndexSize);//OYM：后面是选择相应的着色器
             if (textureIndex < textureList.Length && textureIndex >= 0)
             {
                 material.Texture = textureList[textureIndex];
@@ -550,9 +613,14 @@ namespace LibMMD.Reader
             ret.FileFlagSize = reader.ReadByte();
             return ret;
         }
-
+        /// <summary>
+        /// 传出来一个顶点的基础信息
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <returns></returns>
         private static PmxVertexBasic ReadVertexBasic(BinaryReader reader)
         {
+            
             PmxVertexBasic ret;
             ret.Coordinate = MmdReaderUtil.ReadVector3(reader);
             ret.Normal = MmdReaderUtil.ReadVector3(reader);
@@ -567,11 +635,22 @@ namespace LibMMD.Reader
             public float Version;
             public byte FileFlagSize;
         }
-
+        /// <summary>
+        /// 顶点的基础信息
+        /// </summary>
         private struct PmxVertexBasic
         {
+            /// <summary>
+            /// 坐标
+            /// </summary>
             public Vector3 Coordinate;
+            /// <summary>
+            /// 法线朝向
+            /// </summary>
             public Vector3 Normal;
+            /// <summary>
+            /// UV坐标
+            /// </summary>
             public Vector2 UvCoordinate;
         }
 
@@ -587,7 +666,9 @@ namespace LibMMD.Reader
             public int MorphIndexSize  { get; set; }
             public int RigidBodyIndexSize { get; set; }
         }
-
+        /// <summary>
+        /// 位运算用的比较符,看不懂,告辞
+        /// </summary>
         private abstract class PmxMaterialDrawFlags
         {
             public const byte PmxMaterialDrawDoubleFace = 0x01;

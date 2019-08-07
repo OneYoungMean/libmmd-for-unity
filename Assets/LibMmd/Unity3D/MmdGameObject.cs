@@ -354,7 +354,7 @@ namespace LibMMD.Unity3D
         private void DoLoadModel(string filePath)
         {
             Debug.LogFormat("start load model {0}", filePath);
-            _model = ModelReader.LoadMmdModel(filePath, _modelReadConfig);//OYM：先去看看这个类吧
+            _model = ModelReader.LoadMmdModel(filePath, _modelReadConfig);//OYM：备注一下,后面那个参数是一个空字符串
             Release();
             var directoryInfo = new FileInfo(filePath).Directory;
             if (directoryInfo == null)

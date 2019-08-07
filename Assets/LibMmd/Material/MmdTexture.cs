@@ -1,5 +1,8 @@
 ﻿namespace LibMMD.Material
 {
+    /// <summary>
+    /// 材质类型的父类,肯定还有各个类型的子类想阴我
+    /// </summary>
     public class MmdTexture
     {
         public string TexturePath { get; set; }

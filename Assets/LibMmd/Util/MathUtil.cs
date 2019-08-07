@@ -309,7 +309,11 @@ namespace LibMMD.Util
             unity.m33 =bullet.M44;
 
         }
-
+        /// <summary>
+        /// 注意这个方法返回float
+        /// </summary>
+        /// <param name="f"></param>
+        /// <returns></returns>
         public static float NanToZero(float f)
         {
             return float.IsNaN(f) ? 0.0f : f;
