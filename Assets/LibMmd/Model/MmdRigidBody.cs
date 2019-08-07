@@ -81,7 +81,7 @@ namespace LibMMD.Model
         /// </summary>
         public float Friction { get; set; }
         /// <summary>
-        /// 种类
+        /// rigidbody碰撞模式
         /// </summary>
         public RigidBodyType Type { get; set; }
     }

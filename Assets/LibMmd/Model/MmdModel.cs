@@ -53,9 +53,12 @@ namespace LibMMD.Model
         /// </summary>
         public Constraint[] Constraints { get; set; }//OYM：这个我忘了
 
+        /// <summary>
+        /// 检查数据
+        /// </summary>
         public void Normalize()
         {
-            foreach (var vertex in Vertices)
+            foreach (var vertex in Vertices)//OYM：检查顶点
             {
                 switch (vertex.SkinningOperator.Type)
                 {

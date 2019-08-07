@@ -16,7 +16,7 @@ namespace LibMMD.Reader
             var fileStream = new FileStream(path, FileMode.Open);//OYM：打开文件
             var bufferedStream = new BufferedStream(fileStream);//OYM：缓存到这个类可以减少在不用时候产生性能的开销,等等那这里有个毛用啊
             var binaryReader = new BinaryReader(bufferedStream);//OYM：读取成二进制
-            return Read(binaryReader, config);
+            return Read(binaryReader, config);//OYM：返回一个巨复杂的mmd类,包含mmd所有信息(吧)
         }
 
         /*备份一下

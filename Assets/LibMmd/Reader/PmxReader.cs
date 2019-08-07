@@ -34,13 +34,18 @@ namespace LibMMD.Reader
             ReadParts(reader, config, model, pmxConfig, textureList);//OYM：获取材质shader的类
             ReadBones(reader, model, pmxConfig);//OYM：获取骨骼
             ReadMorphs(reader, model, pmxConfig);//OYM：表情包~
-            ReadEntries(reader, pmxConfig);
-            ReadRigidBodies(reader, model, pmxConfig);
-            ReadConstraints(reader, model, pmxConfig);
-            model.Normalize();
+            ReadEntries(reader, pmxConfig);//OYM：没用,但是还是要把字节取出来丢掉
+            ReadRigidBodies(reader, model, pmxConfig);//OYM：获取碰撞
+            ReadConstraints(reader, model, pmxConfig);//OYM：获取约束
+            model.Normalize();//OYM：检查顶点
             return model;
         }
-
+        /// <summary>
+        /// 在节点上约束位置啥的,也不知道具体怎么起作用
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="model"></param>
+        /// <param name="pmxConfig"></param>
         private static void ReadConstraints(BinaryReader reader, MmdModel model, PmxConfig pmxConfig)
         {
             var constraintNum = reader.ReadInt32();
@@ -96,9 +101,15 @@ namespace LibMMD.Reader
             pmxConfig.Encoding = pmxConfig.Utf8Encoding ? Encoding.UTF8 : Encoding.Unicode;
             return pmxConfig;
         }
-
+        /// <summary>
+        /// 看上去很多要讲的内容...实际上也没啥
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="model"></param>
+        /// <param name="pmxConfig"></param>
         private static void ReadRigidBodies(BinaryReader reader, MmdModel model, PmxConfig pmxConfig)
         {
+            //OYM：获取rigidbody,然后blablabla,完毕
             var rigidBodyNum = reader.ReadInt32();
             model.Rigidbodies = new MmdRigidBody[rigidBodyNum];
             for (var i = 0; i < rigidBodyNum; ++i)
@@ -126,8 +137,14 @@ namespace LibMMD.Reader
         }
 
         //unused data
+        /// <summary>
+        /// 作者写了一个没有用的标签
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="pmxConfig"></param>
         private static void ReadEntries(BinaryReader reader, PmxConfig pmxConfig)
         {
+            //OYM：注意,这是个void方法...作者把所有的数据都丢了23333
             var entryItemNum = reader.ReadInt32();
             for (var i = 0; i < entryItemNum; ++i)
             {
@@ -141,6 +158,7 @@ namespace LibMMD.Reader
                     if (isMorph)
                     {
                         MmdReaderUtil.ReadIndex(reader, pmxConfig.MorphIndexSize); //morphIndex
+                        
                     }
                     else
                     {
@@ -149,7 +167,12 @@ namespace LibMMD.Reader
                 }
             }
         }
-
+        /// <summary>
+        /// 读取变形
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="model"></param>
+        /// <param name="pmxConfig"></param>
         private static void ReadMorphs(BinaryReader reader, MmdModel model, PmxConfig pmxConfig)
         {
             var morphNum = reader.ReadInt32();//OYM：表情包数量
@@ -163,16 +186,18 @@ namespace LibMMD.Reader
                     NameEn = MmdReaderUtil.ReadSizedString(reader, pmxConfig.Encoding),
                     Category = (Morph.MorphCategory) reader.ReadByte()
                 };
+
                 if (morph.Category == Morph.MorphCategory.MorphCatSystem)
                 {
-                    baseMorphIndex = i;
+                    baseMorphIndex = i;//OYM：这个就相当于是一个基类吧
                 }
-                morph.Type = (Morph.MorphType) reader.ReadByte();
+
+                morph.Type = (Morph.MorphType)reader.ReadByte();//OYM：变形方式
                 var morphDataNum = reader.ReadInt32();
-                morph.MorphDatas = new Morph.MorphData[morphDataNum];
+                morph.MorphDatas = new Morph.MorphData[morphDataNum];//OYM：获取表情变形的数据
                 switch (morph.Type)
                 {
-                    case Morph.MorphType.MorphTypeGroup:
+                    case Morph.MorphType.MorphTypeGroup://OYM：不知道干啥用的
                         for (var j = 0; j < morphDataNum; ++j)
                         {
                             var morphData =
@@ -184,32 +209,33 @@ namespace LibMMD.Reader
                             morph.MorphDatas[j] = morphData;
                         }
                         break;
-                    case Morph.MorphType.MorphTypeVertex:
+                    case Morph.MorphType.MorphTypeVertex://OYM：喜闻乐见的顶点变形
                         for (var j = 0; j < morphDataNum; ++j)
                         {
                             var morphData =
                                 new Morph.VertexMorph
                                 {
-                                    VertexIndex = MmdReaderUtil.ReadIndex(reader, pmxConfig.VertexIndexSize),
-                                    Offset = MmdReaderUtil.ReadVector3(reader)
+                                    VertexIndex = MmdReaderUtil.ReadIndex(reader, pmxConfig.VertexIndexSize),//OYM：顶点的序号
+                                    Offset = MmdReaderUtil.ReadVector3(reader)//OYM：偏移量
                                 };
                             morph.MorphDatas[j] = morphData;
                         }
                         break;
-                    case Morph.MorphType.MorphTypeBone:
+                    case Morph.MorphType.MorphTypeBone://OYM：骨骼变形
                         for (var j = 0; j < morphDataNum; ++j)
                         {
                             var morphData =
                                 new Morph.BoneMorph
                                 {
-                                    BoneIndex = MmdReaderUtil.ReadIndex(reader, pmxConfig.BoneIndexSize),
-                                    Translation = MmdReaderUtil.ReadVector3(reader),
-                                    Rotation = MmdReaderUtil.ReadQuaternion(reader)
+                                    BoneIndex = MmdReaderUtil.ReadIndex(reader, pmxConfig.BoneIndexSize),//OYM：骨骼序号
+                                    Translation = MmdReaderUtil.ReadVector3(reader),//OYM：移动方向
+                                    Rotation = MmdReaderUtil.ReadQuaternion(reader)//OYM：旋转方向
                                 };
                             morph.MorphDatas[j] = morphData;
                         }
 
                         break;
+                    //OYM：下面一堆case都是执行靠后面那个方法
                     case Morph.MorphType.MorphTypeUv:
                     case Morph.MorphType.MorphTypeExtUv1:
                     case Morph.MorphType.MorphTypeExtUv2:
@@ -217,6 +243,7 @@ namespace LibMMD.Reader
                     case Morph.MorphType.MorphTypeExtUv4:
                         for (var j = 0; j < morphDataNum; ++j)
                         {
+                            //OYM：获取信息就完事了
                             var morphData =
                                 new Morph.UvMorph
                                 {
@@ -232,6 +259,7 @@ namespace LibMMD.Reader
                         {
                             var morphData = new Morph.MaterialMorph();
                             var mmIndex = MmdReaderUtil.ReadIndex(reader, pmxConfig.MaterialIndexSize);
+                            //OYM：补一个,作者居然还顺便修复了一个bug23333
                             if (mmIndex < model.Parts.Length && mmIndex > 0) //TODO mmdlib的代码里是和bone数比较。确认这个逻辑
                             {
                                 morphData.MaterialIndex = mmIndex;
@@ -261,6 +289,7 @@ namespace LibMMD.Reader
                 if (baseMorphIndex != null)
                 {
                     //TODO rectify system-reserved category
+                    //OYM：不清楚作者要干啥
                 }
 
                 model.Morphs[i] = morph;
@@ -441,7 +470,7 @@ namespace LibMMD.Reader
             }
             for (var i = 0; i < triangleIndexCount; ++i)
             {
-                model.TriangleIndexes[i] = MmdReaderUtil.ReadIndex(reader, pmxConfig.VertexIndexSize);//OYM：读取三角形
+                model.TriangleIndexes[i] = MmdReaderUtil.ReadIndex(reader, pmxConfig.VertexIndexSize);//OYM：读取三角形,注意三角形是根据顶点的序号数目生成的
             }
         }
         /// <summary>

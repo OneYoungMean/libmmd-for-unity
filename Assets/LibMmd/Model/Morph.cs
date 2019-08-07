@@ -70,13 +70,17 @@ namespace LibMMD.Model
         {
             //OYM：啊我懂了,原来抽象类是这么用的
         }
-
+        /// <summary>
+        /// 组变形
+        /// </summary>
         public class GroupMorph : MorphData
         {
             public int MorphIndex { get; set; }
             public float MorphRate { get; set; }
         }
-
+        /// <summary>
+        /// 顶点变形
+        /// </summary>
         public class VertexMorph : MorphData
         {
             public int VertexIndex { get; set; }
@@ -89,13 +93,17 @@ namespace LibMMD.Model
             public Vector3 Translation { get; set; }
             public Quaternion Rotation { get; set; }
         }
-
+        /// <summary>
+        /// UV变形
+        /// </summary>
         public class UvMorph : MorphData
         {
             public int VertexIndex { get; set; }
             public Vector4 Offset { get; set; }
         }
-
+        /// <summary>
+        /// 材料变形
+        /// </summary>
         public class MaterialMorph : MorphData
         {
             public enum MaterialMorphMethod : byte {
@@ -124,8 +132,17 @@ namespace LibMMD.Model
         /// 英文名
         /// </summary>
         public string NameEn { get; set; }
+        /// <summary>
+        /// 种类
+        /// </summary>
         public MorphCategory Category { get; set; }
+        /// <summary>
+        /// 变形方法
+        /// </summary>
         public MorphType Type { get; set; }
+        /// <summary>
+        /// 存储变形的数组
+        /// </summary>
         public MorphData[] MorphDatas { get; set; }
     }
 }

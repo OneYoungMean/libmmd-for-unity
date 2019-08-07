@@ -767,10 +767,11 @@ namespace LibMMD.Unity3D
         }
 
         private void Release()
+        //OYM：发布
         {
             if (_materialLoader != null)
             {
-                _materialLoader.Dispose();
+                _materialLoader.Dispose();//OYM：添加材质,写到这里我快饿死了,工作完成差不多三成 
                 _materialLoader = null;
             }
 
